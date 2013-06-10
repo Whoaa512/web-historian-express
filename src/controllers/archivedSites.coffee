@@ -27,9 +27,20 @@ module.exports =
         res.send err
         res.statusCode = 500
 
-
   # Updates archivedSite with data from `req.body`
   update: (req, res) ->
+    ArchivedSite.findByIdAndUpdate req.params.id, {"$set":req.body}, (err, site) ->
+      if not err
+        res.send site
+      else
+        res.send err
+        res.statusCode = 500
 
   # Deletes archivedSite by id
   delete: (req, res) ->
+    ArchivedSite.findByIdAndRemove req.params.id, (err) ->
+      if not err
+        res.send {}
+      else
+        res.send err
+        res.statusCode = 500
