@@ -1,13 +1,14 @@
 extends layout
 block content
-  .container
+  .addSite
     h2 Welcome to Web Historian Express!
-    input(type="text", placeholder="submit a site to be archived")
-    input.btn(type="button", value="Queue site for archiving!")
-  .sidebar
-    ul
-      li Previously
-      li archived
-      li sites
-  .archiveViewPort
-    iframe#viewPort
+    form.form-horizontal
+      input.input(type="text", placeholder="submit a site to be archived")
+      input.btn#queueSite(type="button", value="Queue site for archiving!")
+  .main
+    .sidebar
+      ul
+        li Previously
+        li archived
+        li sites
+    iframe.archiveViewPort
