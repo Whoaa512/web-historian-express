@@ -3,8 +3,12 @@ block content
   .addSite
     h2 Welcome to Web Historian Express!
     form.form-horizontal(method="POST", action="/sites/create")
-      input.input(type="text", placeholder="submit a site to be archived")
-      input.btn#queueSite(type="submit", value="Queue site for archiving!")
+      .clearfix
+        .input
+          input(type="text", placeholder="submit a site to be archived", name="url")
+      .clearfix
+        .input
+          input.btn#queueSite(type="submit", value="Queue site for archiving!")
   .main
     .sidebar
       ul

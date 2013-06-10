@@ -9,9 +9,12 @@ module.exports =
 
   # Creates new Site with data from `req.body`
   create: (req, res) ->
-    site = new Site req.body
+    console.log req.body
+    site = new Site
+      body: req.body.url
     site.save (err, site) ->
       if not err
+        console.log site
         res.send site
         res.statusCode = 201
       else
