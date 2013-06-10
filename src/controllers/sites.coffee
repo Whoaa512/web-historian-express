@@ -1,15 +1,15 @@
-ArchivedSite = require '../models/ArchivedSite'
+Site = require '../models/site'
 
-# ArchivedSite model's CRUD controller.
+# Site model's CRUD controller.
 module.exports =
-  # Lists all archivedSites
+  # Lists all Sites
   index: (req, res) ->
-    ArchivedSite.find {}, (err, sites) ->
+    Site.find {}, (err, sites) ->
       res.send sites
 
-  # Creates new archivedSite with data from `req.body`
+  # Creates new Site with data from `req.body`
   create: (req, res) ->
-    site = new ArchivedSite req.body
+    site = new Site req.body
     site.save (err, site) ->
       if not err
         res.send site
@@ -18,27 +18,27 @@ module.exports =
         res.send err
         res.statusCode = 500
 
-  # Gets archivedSite by id
+  # Gets Site by id
   get: (req, res) ->
-    ArchivedSite.findById req.params.id, (err, site) ->
+    Site.findById req.params.id, (err, site) ->
       if not err
         res.send site
       else
         res.send err
         res.statusCode = 500
 
-  # Updates archivedSite with data from `req.body`
+  # Updates Site with data from `req.body`
   update: (req, res) ->
-    ArchivedSite.findByIdAndUpdate req.params.id, {"$set":req.body}, (err, site) ->
+    Site.findByIdAndUpdate req.params.id, {"$set":req.body}, (err, site) ->
       if not err
         res.send site
       else
         res.send err
         res.statusCode = 500
 
-  # Deletes archivedSite by id
+  # Deletes Site by id
   delete: (req, res) ->
-    ArchivedSite.findByIdAndRemove req.params.id, (err) ->
+    Site.findByIdAndRemove req.params.id, (err) ->
       if not err
         res.send {}
       else
