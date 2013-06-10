@@ -2,7 +2,7 @@ extends layout
 block content
   .addSite
     h2 Welcome to Web Historian Express!
-    form.form-horizontal
+    form.form-horizontal(method="POST", action="/sites/create")
       input.input(type="text", placeholder="submit a site to be archived")
       input.btn#queueSite(type="button", value="Queue site for archiving!")
   .main
