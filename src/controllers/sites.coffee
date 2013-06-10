@@ -9,16 +9,15 @@ module.exports =
 
   # Creates new Site with data from `req.body`
   create: (req, res) ->
-    console.log req.body
     site = new Site
-      body: req.body.url
+      url: req.body.url
     site.save (err, site) ->
       if not err
-        console.log site
-        res.send site
+        console.log site, 'saved successfully!'
         res.statusCode = 201
+        res.redirect '/'
       else
-        res.send err
+        res.send "Error:\n#{err}\nEnd error."
         res.statusCode = 500
 
   # Gets Site by id
