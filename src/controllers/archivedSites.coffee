@@ -4,6 +4,8 @@ ArchivedSite = require '../models/ArchivedSite'
 module.exports =
   # Lists all posts
   index: (req, res) ->
+    ArchivedSite.find {}, (err, sites) ->
+      res.send sites
 
   # Creates new post with data from `req.body`
   create: (req, res) ->
