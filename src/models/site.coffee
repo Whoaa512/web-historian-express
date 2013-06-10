@@ -1,11 +1,11 @@
 mongoose = require 'mongoose'
 
-# ArchivedSite model
-ArchivedSite = new mongoose.Scheme(
+# Site model
+Site = new mongoose.Schema(
   title: String
   body: String
   url: String
   created_at: Date
 )
 
-module.exports = mongoose.model 'ArchivedSite', ArchivedSite
+module.exports = mongoose.model 'Site', Site
