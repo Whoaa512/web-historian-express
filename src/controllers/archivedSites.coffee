@@ -2,19 +2,28 @@ ArchivedSite = require '../models/ArchivedSite'
 
 # ArchivedSite model's CRUD controller.
 module.exports =
-  # Lists all posts
+  # Lists all archivedSites
   index: (req, res) ->
     ArchivedSite.find {}, (err, sites) ->
       res.send sites
 
-  # Creates new post with data from `req.body`
+  # Creates new archivedSite with data from `req.body`
   create: (req, res) ->
+    site = new ArchivedSite req.body
+    site.save (err, site) ->
+      if not err
+        res.send site
+        res.statusCode = 201
+      else
+        res.send err
+        res.statusCode = 500
 
-  # Gets post by id
+
+  # Gets archivedSite by id
   get: (req, res) ->
 
-  # Updates post with data from `req.body`
+  # Updates archivedSite with data from `req.body`
   update: (req, res) ->
 
-  # Deletes post by id
+  # Deletes archivedSite by id
   delete: (req, res) ->
