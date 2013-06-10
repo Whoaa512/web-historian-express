@@ -18,9 +18,15 @@ module.exports =
         res.send err
         res.statusCode = 500
 
-
   # Gets archivedSite by id
   get: (req, res) ->
+    ArchivedSite.findById req.params.id, (err, site) ->
+      if not err
+        res.send site
+      else
+        res.send err
+        res.statusCode = 500
+
 
   # Updates archivedSite with data from `req.body`
   update: (req, res) ->
