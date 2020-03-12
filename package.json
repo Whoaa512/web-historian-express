@@ -14,7 +14,7 @@
       "test": "mocha --require should --compilers coffee:coffee-script --colors"
   },
   "dependencies": {
-    "express": "3.x",
+    "express": "4.0.0",
     "coffee-script": "1.6.x",
     "jade": "0.30.x",
     "connect-assets": "2.4.x",
